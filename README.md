@@ -64,7 +64,8 @@ Ensure you have the following installed:
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 📬 Contact
-For any inquiries, feel free to reach out at [your-email@example.com].
+For any inquiries, feel free to reach out at **shrotimuskan@gmail.com**.
+
 
 ## 🌐 Connect With Me
 [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://x.com/stoic_aloof0?t=3OA_pxGGyY2ZTbaWl5HTlQ&s=09)
