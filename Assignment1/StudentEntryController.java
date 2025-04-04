@@ -3,6 +3,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/student")
@@ -18,6 +19,18 @@ public class StudentEntryController {
     @ResponseBody
     public List<Student> getStudent(){
        return studentList;
+    }
+
+//    @GetMapping("/{id}")
+//    @ResponseBody
+//    public List<Student> getAllStudentById(@PathVariable int id){
+//       return studentList;
+//    }
+
+    @GetMapping("/{id}")
+    @ResponseBody
+    public List<Student> getAllStudent(@PathVariable int id){
+      return studentList.stream().filter(student -> student.getId() == id).collect(Collectors.toList());
     }
 
     @DeleteMapping("/{id}")
