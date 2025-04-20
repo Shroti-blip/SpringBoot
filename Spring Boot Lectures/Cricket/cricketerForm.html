@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{ margin:20px;}
+    </style>
+</head>
+<body>
+
+<form method="post" action="/savecricketer">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name">
+    <br>
+    <label for="team">Team Name</label>
+    <input type="text" id="team" name="team">
+    <br>
+    <label for="retired">Retired?</label>
+    <input type="checkbox" id="retired" name="retired" value="yes">
+    <br>
+    <label for="yes">AllRounder</label>
+    <input type="radio" id="yes" name="allrounder" value="yes">
+    <input type="radio" id="no" name="allrounder" value="no">
+    <br>
+    <label for="debut">Date</label>
+    <input type="date" id="debut" name="debut">
+    <br>
+
+    <input type="submit" >
+    <input type="reset">
+</form>
+</body>
+</html>
