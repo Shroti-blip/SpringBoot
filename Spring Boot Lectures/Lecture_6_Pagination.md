@@ -11,6 +11,7 @@ Pagination is the process of dividing a large dataset into smaller, manageable c
 3. **Pagination Parameters**:
    - `page`: The current page number (zero-based index).
    - `size`: The number of items per page.
+   - `sort`: Specifies the sorting order (e.g., `sort=name,asc`).
 
 ---
 
@@ -29,12 +30,13 @@ public interface UserRepository extends JpaRepository<User, Long> {
 ```
 
 ### 2. Service Layer
-Create a service method to handle pagination logic:
+Create a service method to handle pagination and sorting logic:
 ```java
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -43,15 +45,15 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public Page<User> getUsers(int page, int size) {
-        Pageable pageable = PageRequest.of(page, size);
+    public Page<User> getUsers(int page, int size, String sortBy) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy));
         return userRepository.findAll(pageable);
     }
 }
 ```
 
 ### 3. Controller Layer
-Expose an API endpoint to retrieve paginated data:
+Expose an API endpoint to retrieve paginated and sorted data:
 ```java
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -68,8 +70,9 @@ public class UserController {
     @GetMapping("/users")
     public Page<User> getUsers(
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size) {
-        return userService.getUsers(page, size);
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(defaultValue = "id") String sortBy) {
+        return userService.getUsers(page, size, sortBy);
     }
 }
 ```
@@ -78,9 +81,9 @@ public class UserController {
 
 ## Sample API Request
 - **Endpoint**: `/users`
-- **Parameters**: `?page=1&size=5`
+- **Parameters**: `?page=1&size=5&sort=name`
 
-This request retrieves the second page of data (since indexing starts at 0) with 5 items per page.
+This request retrieves the second page of data (since indexing starts at 0) with 5 items per page, sorted by the `name` field.
 
 ---
 
@@ -93,9 +96,9 @@ This request retrieves the second page of data (since indexing starts at 0) with
 
 ## Additional Features
 To enhance your pagination implementation, consider:
-- **Sorting**: Combine pagination with sorting by adding a `Sort` parameter.
 - **Custom Queries**: Use `@Query` in the repository to fetch filtered paginated data.
 
 ```java
 @Query("SELECT u FROM User u WHERE u.status = :status")
 Page<User> findByStatus(@Param("status") String status, Pageable pageable);
+```
