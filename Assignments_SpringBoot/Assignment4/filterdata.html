@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .table{
+        border-collapse:collapse;
+        width:100%;
+        background-color:#f9f9f9;
+        }
+
+        .table th , .table td{
+        border:1px solid black;
+        text-align: left;
+        padding:8px;
+        }
+
+        .table th{
+        background-color:#e6f2ff;
+        }
+
+        .table tr:nth-child(even){
+        background-color:#f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<form>
+    <form method="get" action="/id">
+    <label for="enquiry_id">Enter Enquiry Id : </label>
+    <input type="number" id="enquiry_id" name="enquiry_id">
+    <input type="submit" value="submit">
+    </form>
+    <hr>
+
+    <form method="get" action="/name">
+    <label for="name">Enter Name</label>
+    <input type="text" id="name" name="name">
+    <input type="submit" value="submit">
+    </form>
+    <hr>
+
+    <form method="get" action="/status" >
+        <label  for="status">Enter your Status</label>
+        <input type="text" id="status" name="status">
+        <input type="submit" value="submit">
+
+    </form>
+
+    <hr>
+
+</form>
+
+<div th:if="${data != null}">
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Message</th>
+            <th>Status</th>
+            <th>Enquiry Date</th>
+            <th>Subject</th>
+        </tr>
+        <tr th:each="enquiry : ${data}">
+            <td th:text="${enquiry.enquiry_id}"></td>
+            <td th:text="${enquiry.name}"></td>
+            <td th:text="${enquiry.phone}"></td>
+            <td th:text="${enquiry.message}"></td>
+            <td th:text="${enquiry.status}"></td>
+            <td th:text="${enquiry_date}"></td>
+            <td th:text="${subject}"></td>
+        </tr>
+    </table>
+</div>
+<div th:if="${data == null}">
+    <p>No data found.</p>
+</div>
+
+
+</body>
+</html>
