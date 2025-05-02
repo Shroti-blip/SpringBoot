@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .table{
+        border-collapse:collapse;
+        width:100%;
+        background-color:#f9f9f9;
+        }
+
+        .table th , .table td{
+        border:1px solid black;
+        padding: 8px;
+        text-align:left;
+        }
+
+        .table th{
+        background-color:e6f2ff;
+        }
+    </style>
+</head>
+<body>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Message</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Subject</th>
+    </tr>
+
+    <tr th:each="e:${enquiryList}">
+        <td th:text="${e.enquiry_id}"></td>
+        <td th:text="${e.name}"></td>
+        <td th:text="${e.phone}"></td>
+        <th th:text="${e.message}"></th>
+        <th th:text="${e.enquiry_date}"></th>
+        <th th:text="${e.status}"></th>
+        <th th:text="${e.subject}"></th>
+    </tr>
+</table>
+
+<!--<li th:each="e : ${enquiryList}">-->
+<!--    <span th:text="${e.enquiry_id}"></span>-->
+<!--    <span th:text="${e.name}"></span>-->
+<!--    <span th:text="${e.phone}"></span>-->
+<!--    <span th:text="${e.message}"></span>-->
+<!--    <span th:text="${e.enquiry_date}"></span>-->
+<!--    <span th:text="${e.status}"></span>-->
+<!--    <span th:text="${e.subject}"></span>-->
+
+<!--</li>-->
+<!--<li th:each="b : ${booklist}">-->
+<!--    <span th:text="${b.bookno}"></span>-->
+<!--    <span th:text="${b.bookname}"></span>-->
+<!--</li>-->
+
+</body>
+</html>
