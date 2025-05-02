@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Save Data</title>
+
+  <style>
+
+    body{
+    font-family:sans-serif;
+    display:flex;
+    justify-content:center;
+    align-item:center;
+    height:100vh;
+    background-color: #f4f6f8;
+    }
+
+    form{
+    background-color:#fff;
+    padding:30px  40px;
+    border-radius:10px;
+    width:350px;
+    }
+
+   form label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:bold;
+    color:#333;
+   }
+
+   form button{
+   width:100%;
+   color:#fff;
+   background-color:teal;
+     cursor: pointer;
+      font-size: 16px;
+      padding:9px;
+      border:1px solid #fff;
+
+   }
+    form input{
+   width:100%;
+    margin-bottom:16px;
+    padding:8px;
+    border:1px solid black;
+    box-sizing:border-box;
+    }
+
+
+  </style>
+</head>
+<body>
+
+
+<form method="post" action="/save">
+
+  <label for="enquiry_id">Enquiry ID</label>
+  <input type="number" name="enquiry_id" id="enquiry_id"><br>
+
+  <label for="name">Name</label>
+  <input type="text" name="name" id="name"><br>
+
+  <label for="phone">Phone</label>
+  <input type="text" name="phone" id="phone"><br>
+
+  <label for="enquiry_date">Enquiry Date</label>
+  <input type="date" name="enquiry_date" id="enquiry_date"><br>
+
+  <label for="subject">Subject</label>
+  <input type="text" name="subject" id="subject"><br>
+
+  <label for="message">Message</label>
+  <input type="text" name="message" id="message"><br>
+
+  <label for="status">Status</label>
+  <input type="text" name="status" id="status"><br>
+
+  <button type="submit">Submit</button><br>
+
+
+</form>
+</body>
+</html>
