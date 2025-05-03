@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--th is the namespace variable which we are using for storing conncetion b/w springboot and html.-->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+
+
+  </style>
+</head>
+<body>
+<div class="container">
+<p th:text="${booklist[0].bookno}"></p>
+<p th:text="${booklist[0].bookname}"></p>
+<hr>
+<p th:text="${booklist[1].bookno}"></p>
+<p th:text="${booklist[1].bookname}"></p>
+<hr>
+<p th:text="${booklist[2].bookno}"></p>
+<p th:text="${booklist[2].bookname}"></p>
+<hr>
+<h1 th:text="${booklist[3].bookno}"></h1>
+<h1 th:text="${booklist[3].bookname}"></h1>
+<hr>
+ <b><p th:text="${booklist[4].bookno}"></p></b>
+ <i><p th:text="${booklist[4].bookname}"></p></i>
+<hr>
+  <address><h1 th:text="${booklist[5].bookno}"></h1></address>
+  <em><h1 th:text="${booklist[5].bookname}"></h1></em>
+</div>
+<div>
+<!--  using for each loop for printing whole data-->
+  <li th:each="b : ${booklist}">
+    <span th:text="${b.bookno}"></span>
+    <span th:text="${b.bookname}"></span>
+  </li>
+</div>
+</body>
+</html>
