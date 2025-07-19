@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:fragment="header">
+  <header>
+  <h1>This is for Header</h1>
+  </header>
+</div>
+
+
+<hr>
+
+<div th:fragment="footer(greet)">
+  <div>
+    <h1 th:text="${greet}"></h1>
+  </div>
+</div>
+
+<hr>
+
+<div th:fragment="body (name , age)">
+  <div>
+    <h1 th:text="${name}"></h1>
+    <h1 th:text="${age}"></h1>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+<!--
+
+Why the space matters:
+th:fragment="body(name, age)" → Thymeleaf treats it as a fragment named literally body(name, age) without parameters.
+
+th:fragment="body (name, age)" → Thymeleaf treats it as fragment body with parameters name and age.
+
+
+
+-->
