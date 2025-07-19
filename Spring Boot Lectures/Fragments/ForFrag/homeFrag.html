@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--  imp -- stylesheet link apply here not in fragment  -->
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<!--  20/05/2025 -->
+
+
+<!--With insert.-->
+<!--folder name -- file name -- fragments name.-->
+<div th:insert="fragments/fragment1 :: header"></div>
+<!--folder name capital small don't matter.-->
+
+<!--Footer-->
+<!--<div th:insert="fragments/fragment1 :: footer('This is Footer Greeting')"></div>-->
+<div th:insert="fragments/fragment1 :: footer1(${greet})"></div>
+<div th:replace="fragments/fragment1 :: header1('First' , 'second')"></div>
+<!--<div th:replace="fragments/fragment1 :: header1(${title})"></div>-->
+
+<!--With replace-->
+</body>
+</html>
