@@ -10,11 +10,11 @@ import java.time.LocalDate;
 @Controller
 
 public class CricketController {
-@RequestMapping("/cricket")
+    @RequestMapping("/cricket")
     public String xyz(){
-    return  "cricketerForm";
-}
-@Autowired
+            return  "cricketerForm";
+    }
+        @Autowired
     CricketRepo cricketrepo;
 @RequestMapping("/savecricketer")
     public String saveData(@RequestParam("name") String name , @RequestParam("team") String team , @RequestParam(value = "retired", defaultValue = "no") String retired , @RequestParam("allrounder") String allrounder, @RequestParam("debut")LocalDate debut){
