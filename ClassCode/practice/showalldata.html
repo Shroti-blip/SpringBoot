@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>id</th>
+        <th>tname</th>
+        <th>source</th>
+        <th>destination</th>
+    </tr>
+    <tr th:each="d:${trains}">
+        <th th:text="${d.tname}"></th>
+        <th th:text="${d.source}"></th>
+        <th th:text="${d.destination}"></th>
+    </tr>
+</table>
+</body>
+</html>
