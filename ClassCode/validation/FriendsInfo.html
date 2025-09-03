@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>FriendsInfo</title>
+</head>
+<body>
+
+<form th:action="@{/process}" method="post" th:object="${friendData}" >
+
+<div>
+    <label for="name">Name</label>
+    <input type="text" placeholder="Enter your friends name" name="name" id="name" th:value="${friendData.name}">
+    <p th:each="err : ${#fields.errors('name')}" th:text="${err}"></p>
+</div>
+<div>
+    <label for="email">email</label>
+    <input type="text"  name="email" id="email" th:value="${friendData.email}">
+    <p th:each="err : ${#fields.errors('email')}" th:text="${err}"></p>
+</div>
+<div>
+    <label for="address">address</label>
+    <input type="text"  name="address" id="address" th:value="${friendData.address}">
+    <p th:each="err : ${#fields.errors('address')}" th:text="${err}"></p>
+</div>
+<div>
+    <label for="age">age</label>
+    <input type="text" name="age" id="age" th:value="${friendData.age}">
+    <p th:each="err : ${#fields.errors('age')}" th:text="${err}"></p>
+</div>
+<div>
+    <label for="nickname">NickName</label>
+    <input type="text"  name="nickname" id="nickname" th:value="${friendData.address}">
+    <p th:each="err : ${#fields.errors('nickname')}" th:text="${err}"></p>
+</div>
+
+    <input type="submit">
+
+</form>
+</body>
+</html>
