@@ -11,16 +11,18 @@ public class FriendsEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
-    @NotBlank
+    @NotBlank//cant add space
     String name;
-    @NotNull
+    @NotNull//space are also allowed.
     String address;
     @Email
     String email;
     @Min(18)
     int age;
-    @Pattern(regexp = "")
-    String mno;
+//    @Pattern(regexp = "")
+@Pattern(regexp = "^(\\+91)?[6-9]\\d{9}$", message = "Must be a valid Indian mobile number with optional +91")
+private String mno;
+
     @NotNull
     String nickname;
 
